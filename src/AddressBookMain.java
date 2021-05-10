@@ -48,6 +48,15 @@ public class AddressBookMain {
                     System.out.println("Contact List : ");
                     addressObject.printContactDetails();
                     break;
+                case 3:
+                    System.out.println("Enter name of contact to delete : ");
+                    String deleteCon = scan.nextLine();
+                    addressObject.delete(deleteCon);
+                    break;
+                case 4:
+                    System.out.println("Contact List : ");
+                    addressObject.printContactDetails();
+                    break;
                 default:
                     System.exit(0);
             }

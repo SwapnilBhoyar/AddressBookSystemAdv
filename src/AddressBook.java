@@ -49,6 +49,19 @@ public class AddressBook {
         }
     }
 
+    public void delete(String nameToDelete) {
+        int i=0;
+        for(i=0;i<contactList.size();i++) {
+            if(contactList.get(i).firstname.equals(nameToDelete)) {
+                contactList.remove(i);
+                System.out.println("Contact is Deleted");
+            }
+            else {
+                System.out.println("Contact not found!");
+            }
+        }
+    }
+
     public void printContactDetails() {
         for(ContactDetail getInfo: contactList) {
             System.out.println("Firstname : " + getInfo.getFirstName());
