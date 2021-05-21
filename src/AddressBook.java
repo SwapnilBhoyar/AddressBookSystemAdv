@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
     ArrayList<ContactDetail> contactList = new ArrayList<ContactDetail>();
@@ -7,7 +9,7 @@ public class AddressBook {
     Scanner scan = new Scanner(System.in);
     int i;
     ContactDetail contactDetailObject = new ContactDetail();
-    
+
     boolean checkDuplicate() {
         System.out.println("Firstname : ");
         firstname = scan.nextLine();
@@ -19,7 +21,7 @@ public class AddressBook {
         }
         return false;
     }
-    
+
     public void addContactDetails() {
         if(!checkDuplicate()) {
             System.out.println("Lastname : ");
@@ -105,6 +107,28 @@ public class AddressBook {
                 System.out.println("Zip : " + contactList.get(i).zip);
                 System.out.println("PhoneNumber : " + contactList.get(i).phoneNumber);
                 System.out.println("Email : " + contactList.get(i).email);
+            }
+        }
+    }
+
+    public void contactWithSameCity() {
+        System.out.println("Enter city name to search contact's :");
+        String citySearch = scan.nextLine();
+        for (ContactDetail contact: contactList) {
+            List<ContactDetail> personByCity = contactList.stream().filter(myContact -> myContact.getCity().equals(citySearch)).collect(Collectors.toList());
+            for (ContactDetail myContact: personByCity) {
+                System.out.println("Name:"+ contact.getFirstName()+" "+contact.getLastName());
+            }
+        }
+    }
+
+    public void contactWithSameState() {
+        System.out.println("Enter state name to search contact's :");
+        String stateSearch = scan.nextLine();
+        for (ContactDetail contact: contactList) {
+            List<ContactDetail> personByState = contactList.stream().filter(myContact -> myContact.getState().equals(stateSearch)).collect(Collectors.toList());
+            for (ContactDetail myContact: personByState) {
+                System.out.println("Name:"+ contact.getFirstName()+" "+contact.getLastName());
             }
         }
     }

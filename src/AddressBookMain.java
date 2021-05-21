@@ -31,7 +31,7 @@ public class AddressBookMain {
                         if (adbook.get(j).addressBookName.equalsIgnoreCase(accessBook)) {
                             int switchChoice = 0;
                             while (switchChoice != 5) {
-                                System.out.println("Enter 1: add 2: edit 3: delete 4: view 5: exit");
+                                System.out.println("Enter \n1: add \n2: edit \n3: delete \n4: view \n5: View persons in same city \n6: View persons in same state \n7: exit");
                                 System.out.println("Enter choice : ");
                                 switchChoice = scan.nextInt();
                                 choice = "y";
@@ -55,6 +55,15 @@ public class AddressBookMain {
                                     case 4:
                                         addressObject.printContactDetails();
                                         break;
+
+                                    case 5:
+                                        addressObject.contactWithSameCity();
+                                        break;
+
+                                    case 6:
+                                        addressObject.contactWithSameState();
+                                        break;
+
                                     default:
                                         break;
                                 }
