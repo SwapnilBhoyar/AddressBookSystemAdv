@@ -2,8 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
+    private static ArrayList<AddressBook> adbook = new ArrayList<AddressBook>();
     public static void main(String args[]) {
-        ArrayList<AddressBook> adbook = new ArrayList<AddressBook>();
+
         int r = 0;
         String choice = "y";
         Scanner scan = new Scanner(System.in);
@@ -33,64 +34,26 @@ public class AddressBookMain {
                                 System.out.println("Enter 1: add 2: edit 3: delete 4: view 5: exit");
                                 System.out.println("Enter choice : ");
                                 switchChoice = scan.nextInt();
-                                scan.nextLine();
                                 choice = "y";
                                 switch (switchChoice) {
                                     case 1:
                                         while (choice.equals("y")) {
-                                            System.out.println("Firstname : ");
-                                            String firstname = scan.nextLine();
-                                            System.out.println("Lastname : ");
-                                            String lastname = scan.nextLine();
-                                            System.out.println("Address : ");
-                                            String address = scan.nextLine();
-                                            System.out.println("City : ");
-                                            String city = scan.nextLine();
-                                            System.out.println("State : ");
-                                            String state = scan.nextLine();
-                                            System.out.println("Zip : ");
-                                            String zip = scan.nextLine();
-                                            System.out.println("PhoneNumber : ");
-                                            String phonenumber = scan.nextLine();
-                                            System.out.println("Email : ");
-                                            String email = scan.nextLine();
+                                            addressObject.addContactDetails();
                                             System.out.println("Do you want add more contact : ");
-                                            choice = scan.nextLine();
-
-                                            ContactDetail contact = new ContactDetail(firstname, lastname, address, city, state, zip, phonenumber, email);
-                                            adbook.get(j).contactList.add(contact);
+                                            choice = scan.next();
                                         }
                                         break;
 
                                     case 2:
-                                        System.out.println("Enter name of contact to edit : ");
-                                        String nameToEdit = scan.nextLine();
-                                        int i = 0;
-                                        for (i = 0; i < adbook.get(j).contactList.size(); i++) {
-                                            if (adbook.get(j).contactList.get(i).firstname.equalsIgnoreCase(nameToEdit)) {
-                                                adbook.get(j).contactList.get(i).editContact();
-                                            }
-                                        }
+                                        addressObject.editContact();
                                         break;
 
                                     case 3:
-                                        System.out.println("Enter name of contact to delete : ");
-                                        String deleteCon = scan.nextLine();
-                                        for (i = 0; i < adbook.get(j).contactList.size(); i++) {
-                                            if (adbook.get(j).contactList.get(i).firstname.equalsIgnoreCase(deleteCon)) {
-                                                adbook.get(j).contactList.remove(i);
-                                            }
-                                        }
+                                        addressObject.deleteContact();
                                         break;
 
                                     case 4:
-                                        System.out.println("Enter name of contact to view : ");
-                                        String nameToView = scan.nextLine();
-                                        for (i = 0; i < adbook.get(j).contactList.size(); i++) {
-                                            if (adbook.get(j).contactList.get(i).firstname.equalsIgnoreCase(nameToView)) {
-                                                adbook.get(j).contactList.get(i).printContactDetails();
-                                            }
-                                        }
+                                        addressObject.printContactDetails();
                                         break;
                                     default:
                                         break;
