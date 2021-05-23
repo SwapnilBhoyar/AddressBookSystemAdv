@@ -9,7 +9,7 @@ public class AddressBookMain {
         String choice = "y";
         Scanner scan = new Scanner(System.in);
         AddressBook addressObject = new AddressBook();
-        System.out.println("Wellcome to Address Book Program!");
+        System.out.println("Wellcome to Address Book!");
         while (r != 3) {
             System.out.println("1.CREATE AN ADDRESS BOOK");
             System.out.println("2.ACCESS AN ADDRESS BOOK");
@@ -32,7 +32,7 @@ public class AddressBookMain {
                             int switchChoice = 0;
                             while (switchChoice != 5) {
                                 System.out.println("Enter \n1: add \n2: edit \n3: delete \n4: view \n5: View persons in same city \n6: View persons in same state " +
-                                                    "\n7: count of people from same city \n8: count of people from same state \n9: sort contact                       \n10: exit");
+                                                    "\n7: count of people from same city \n8: count of people from same state \n9: sort contact \n10: exit");
                                 System.out.println("Enter choice : ");
                                 switchChoice = scan.nextInt();
                                 choice = "y";
