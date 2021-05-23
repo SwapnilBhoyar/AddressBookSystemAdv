@@ -32,7 +32,7 @@ public class AddressBookMain {
                             int switchChoice = 0;
                             while (switchChoice != 5) {
                                 System.out.println("Enter \n1: add \n2: edit \n3: delete \n4: view \n5: View persons in same city \n6: View persons in same state " +
-                                                    "\n7: count of people from same city \n8: count of people from same state \n9: exit");
+                                                    "\n7: count of people from same city \n8: count of people from same state \n9: sort contact                       \n10: exit");
                                 System.out.println("Enter choice : ");
                                 switchChoice = scan.nextInt();
                                 choice = "y";
@@ -71,6 +71,10 @@ public class AddressBookMain {
 
                                     case 8:
                                         addressObject.countWithSameState();
+                                        break;
+
+                                    case 9:
+                                        addressObject.sortContact(adbook);
                                         break;
 
                                     default:

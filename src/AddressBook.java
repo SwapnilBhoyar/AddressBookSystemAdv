@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
@@ -152,6 +150,22 @@ public class AddressBook {
             for (ContactDetail myContact: countByState) {
                 System.out.println("Number of people from "+stateSearch+" are:"+ countByState.stream().count());
             }
+        }
+    }
+
+    public static Comparator<ContactDetail> compareFirstName = new Comparator<ContactDetail>() {
+        @Override
+        public int compare(ContactDetail contactDetail, ContactDetail t1) {
+            String tempFirstName1 = contactDetail.getFirstName();
+            String tempFirstName2 = contactDetail.getFirstName();
+            return tempFirstName1.compareTo(tempFirstName2);
+        }
+    };
+
+    public void sortContact(ArrayList<AddressBook> adbook) {
+        Collections.sort(contactList, AddressBook.compareFirstName);
+        for(ContactDetail contact: contactList) {
+            System.out.println(contact.getFirstName());
         }
     }
 }
